@@ -10,24 +10,27 @@ const smartphone_create_post = (req, res) => {
     // send a success response
     // {}
     res.render('ItemPostSuccess', {
+      title: 'Post new Smartphone success',
       item
     })
   }).catch(err => console.log(err))
 }
 
-// const smartphone_create_get = (req, res)=>{
-
-//     res.render('createsmartphone',{
-//       //data to send to createsmartphone view
-//     })
-//   };
+const smartphone_create_get = (req, res) => {
+  res.render('createItem', {
+    // data to send to createItem view
+    title: 'Post new Smartphone',
+    formAction: '/smartphones'
+  })
+}
 
 const smartphones_get = (req, res) => {
   Smartphone.find().then((result) => {
-    const smartphones = result
-    res.render('smartphones/Smartphones', {
+    const items = result
+    res.render('itemList', {
       // data to send to view
-      smartphones
+      title: 'smartphones',
+      items
     })
   }).catch(err => console.log(err))
 }
@@ -35,9 +38,10 @@ const smartphones_get = (req, res) => {
 const smartphone_detail = (req, res) => {
   const id = req.params.id
   Smartphone.findById(id).then((result) => {
-    const smartphone = result
-    res.render('smartphones/SmartphoneDetail', {
-      smartphone
+    const item = result
+    res.render('itemDetail', {
+      title: `${item.itemName} details page`,
+      item
     })
   }).catch((err) => {
     console.log(err)
@@ -52,7 +56,16 @@ const smartphone_delete = (req, res) => {
     // might not work, use res.json to redirect
     res.json({ redirect: '/userItems', deletedSmartphone })
   }).catch((err) => {
+    // preferably print -an error occured
     console.log(err)
     res.render('404')
   })
+}
+
+module.exports = {
+  smartphone_create_get,
+  smartphone_create_post,
+  smartphone_delete,
+  smartphone_detail,
+  smartphones_get
 }

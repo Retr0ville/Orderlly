@@ -10,24 +10,27 @@ const pc_create_post = (req, res) => {
     // send a success response
     // {}
     res.render('ItemPostSuccess', {
+      title: 'Pc post Success',
       item
     })
   }).catch(err => console.log(err))
 }
 
-// const pc_create_get = (req, res)=>{
-
-//     res.render('createpc',{
-//       //data to send to createPc view
-//     })
-//   };
+const pc_create_get = (req, res) => {
+  res.render('createItem', {
+    // data to send to createItem view
+    title: 'Post new Pc',
+    formAction: '/pcs'
+  })
+}
 
 const pcs_get = (req, res) => {
   Pc.find().then((result) => {
-    const pcs = result
-    res.render('pcs/Pcs', {
+    const items = result
+    res.render('itemList', {
       // data to send to view
-      pcs
+      title: 'PCs for sale',
+      items
     })
   }).catch(err => console.log(err))
 }
@@ -35,9 +38,10 @@ const pcs_get = (req, res) => {
 const pc_detail = (req, res) => {
   const id = req.params.id
   Pc.findById(id).then((result) => {
-    const pc = result
-    res.render('pcs/PcDetail', {
-      pc
+    const item = result
+    res.render('itemDetail', {
+      title: `${item.itemName} details page`,
+      item
     })
   }).catch((err) => {
     console.log(err)
@@ -52,7 +56,16 @@ const pc_delete = (req, res) => {
     // might not work, use res.json to redirect
     res.json({ redirect: '/userItems', deletedpc })
   }).catch((err) => {
+    // preferably print -an error occured
     console.log(err)
     res.render('404')
   })
+}
+
+module.exports = {
+  pc_create_get,
+  pc_create_post,
+  pc_delete,
+  pc_detail,
+  pcs_get
 }

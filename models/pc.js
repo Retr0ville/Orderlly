@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const pcSchema = new Schema(
   {
@@ -24,9 +24,9 @@ const pcSchema = new Schema(
       required: true
     }
 
-  }, {timestamps: true}
-);
+  }, { timestamps: true }
+)
 
-const Pc = mongoose.model('Pc', pcSchema);
+const Pc = mongoose.model('Pc', pcSchema)
 
 module.exports = Pc

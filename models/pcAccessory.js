@@ -1,32 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema ;
+const Schema = mongoose.Schema
 const pcAccessorySchema = new Schema(
   {
-    itemName : {
+    itemName: {
       required: true,
       type: String
     },
     userId: {
       type: String,
       required: true
-    },  
-    description : {
+    },
+    description: {
       required: true,
       type: String
-    },    
+    },
     itemStatus: {
       type: String
-    },  
+    },
     cost: {
       required: true,
       type: Number
-      }
-  }, {timestamps: true}
-);
+    }
+  }, { timestamps: true }
+)
 
-const Pc_accessory = mongoose.model('pc_Accessory', pcAccessorySchema);
-
-
+const Pc_accessory = mongoose.model('pc_Accessory', pcAccessorySchema)
 
 module.exports = Pc_accessory

@@ -12,25 +12,28 @@ const pc_accessory_create_post = (req, res) => {
       //  send a success response
       //  {}
       res.render('ItemPostSuccess', {
+        title: 'Pc Accessory post success',
         item
       })
     })
     .catch((err) => console.log(err))
 }
 
-// const pc_accessory_create_get = (req, res)=>{
-//     res.render('createAccessory',{
-//       //data to send to createAccessories view
-//     })
-//   };
+const pc_accessory_create_get = (req, res) => {
+  res.render('createItem', {
+    // data to send to createItem view
+    title: 'Post new pc-accessory',
+    formAction: '/pc-accessories'
+  })
+}
 
 const pc_accessories_get = (req, res) => {
   PcAccessory.find()
     .then((result) => {
-      const pcAccessories = result
-      res.render('pc_accessories/pcAccessories', {
-        // data to send to createAccessories view
-        pcAccessories
+      const items = result
+      res.render('itemList', {
+        title: 'PC accessories',
+        items
       })
     })
     .catch((err) => console.log(err))
@@ -40,9 +43,10 @@ const pc_accessory_detail = (req, res) => {
   const id = req.params.id
   PcAccessory.findById(id)
     .then((result) => {
-      const pcAccessory = result
-      res.render('pc_accessories/pcAccessoryDetail', {
-        pcAccessory
+      const item = result
+      res.render('itemDetail', {
+        title: `${item.itemName} details page`,
+        item
       })
     })
     .catch((err) => {
@@ -60,7 +64,16 @@ const pc_accessory_delete = (req, res) => {
       res.json({ redirect: '/userItems', deletedAccessory })
     })
     .catch((err) => {
+      // preferably print -an error occured
       console.log(err)
       res.render('404')
     })
+}
+
+module.exports = {
+  pc_accessories_get,
+  pc_accessory_create_get,
+  pc_accessory_create_post,
+  pc_accessory_delete,
+  pc_accessory_detail
 }

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema ;
+const Schema = mongoose.Schema
 
 const smartphoneAccessorySchema = new Schema(
   {
@@ -23,9 +23,9 @@ const smartphoneAccessorySchema = new Schema(
       type: Number,
       required: true
     }
-  }, {timestamps:true}
-);
+  }, { timestamps: true }
+)
 
-const Smartphone_accessory = mongoose.model('Smartphone_accessory', smartphoneAccessorySchema);
+const Smartphone_accessory = mongoose.model('Smartphone_accessory', smartphoneAccessorySchema)
 
 module.exports = Smartphone_accessory

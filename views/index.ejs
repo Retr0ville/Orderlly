@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include ('./partials/head.ejs') %> 
+<body id="body">
+<%-include('./partials/header.ejs')  %> 
+<div class="container">
+  <div class="card-grid text-featured ">
+    <div class="card bg-gray">
+      <img class="card-img-top" src="img/1.jpg" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Featured item one</h4>
+        <p class="card-text">cool</p>
+      </div>
+    </div>
+    <div class="card bg-gray">
+      <img class="card-img-top" src="img/2.jpg" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Featured item two</h4>
+        <p class="card-text">$$$</p>
+      </div>
+    </div>
+    <div class="card bg-gray">
+      <img class="card-img-top" src="img/2.jpg" alt="">
+      <div class="card-body">
+        <h4 class="card-title">Featured item 3</h4>
+        <p class="card-text">new</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card bg-secondary card-max-width">
+    <div class="card-body opacity">
+      <h2 class="card-title">Categories</h2>
+      <div class="card-group">
+        <div class="card">
+          <img class="card-img-top" src="img/1.jpg" alt="Card image cap">
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="img/2.jpg" alt="Card image cap">
+        </div>
+      </div>
+      <div class="card-group">
+        <div class="card">
+          <a class="no-underline" href="/itemlist"><img class="card-img-top" src="img/1.jpg" alt="Card image cap"></a>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="img/2.jpg" alt="Card image cap">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%-include('./partials/footer.ejs') %>
+</body>
+</html>

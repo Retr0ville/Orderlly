@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema ;
+const Schema = mongoose.Schema
 
 const smartphoneSchema = new Schema(
   {
@@ -23,9 +23,9 @@ const smartphoneSchema = new Schema(
       type: Number,
       required: true
     }
-  },{timestamps: true}
-);
+  }, { timestamps: true }
+)
 
-const Smartphone = mongoose.model('Smartphone', smartphoneSchema);
+const Smartphone = mongoose.model('Smartphone', smartphoneSchema)
 
 module.exports = Smartphone

@@ -12,25 +12,29 @@ const smartphone_accessory_create_post = (req, res) => {
       //  send a success response
       //  {}
       res.render('ItemPostSuccess', {
+        title: 'Smartphone Accessory post success',
         item
       })
     })
     .catch((err) => console.log(err))
 }
 
-// const pc_accessory_create_get = (req, res)=>{
-//     res.render('createAccessory',{
-//       //data to send to createAccessories view
-//     })
-//   };
+const smartphone_accessory_create_get = (req, res) => {
+  res.render('createItem', {
+    // data to send to createItem view
+    title: 'Post new Smartphone Accessory',
+    formAction: '/smartphone-accessories'
+  })
+}
 
 const smartphone_accessories_get = (req, res) => {
   SmartphoneAccessory.find()
     .then((result) => {
-      const smartphoneAccessories = result
-      res.render('smartphone_accessories/SmartphoneAccessories', {
-        // data to send to smartphoneAccessories view
-        smartphoneAccessories
+      const items = result
+      res.render('itemList', {
+      // data to send to view
+        title: 'Smartphone accessories',
+        items
       })
     })
     .catch((err) => console.log(err))
@@ -40,9 +44,10 @@ const smartphone_accessory_detail = (req, res) => {
   const id = req.params.id
   SmartphoneAccessory.findById(id)
     .then((result) => {
-      const smartphoneAccessory = result
-      res.render('smartphone_accessories/SmartphoneAccessoryDetail', {
-        smartphoneAccessory
+      const item = result
+      res.render('itemDetail', {
+        title: `${item.itemName} details page`,
+        item
       })
     })
     .catch((err) => {
@@ -60,7 +65,16 @@ const smartphone_accessory_delete = (req, res) => {
       res.json({ redirect: '/userItems', deletedAccessory })
     })
     .catch((err) => {
+      // preferably print -an error occured
       console.log(err)
       res.render('404')
     })
+}
+
+module.exports = {
+  smartphone_accessories_get,
+  smartphone_accessory_create_get,
+  smartphone_accessory_create_post,
+  smartphone_accessory_delete,
+  smartphone_accessory_detail
 }
