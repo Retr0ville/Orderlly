@@ -7,10 +7,13 @@ const pcAccessorySchema = new Schema(
       required: true,
       type: String
     },
-    userId: {
-      type: String,
-      required: true
+    img: {
+      type: String
     },
+    // userId: {
+    //   type: String,
+    //   required: true
+    // },
     description: {
       required: true,
       type: String

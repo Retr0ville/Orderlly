@@ -11,7 +11,8 @@ const pc_create_post = (req, res) => {
     // {}
     res.render('ItemPostSuccess', {
       title: 'Pc post Success',
-      item
+      item,
+      href: 'pcs'
     })
   }).catch(err => console.log(err))
 }
@@ -20,7 +21,8 @@ const pc_create_get = (req, res) => {
   res.render('createItem', {
     // data to send to createItem view
     title: 'Post new Pc',
-    formAction: '/pcs'
+    formAction: '/pcs',
+    href: 'pcs'
   })
 }
 
@@ -30,7 +32,8 @@ const pcs_get = (req, res) => {
     res.render('itemList', {
       // data to send to view
       title: 'PCs for sale',
-      items
+      items,
+      href: 'pcs'
     })
   }).catch(err => console.log(err))
 }
@@ -41,7 +44,8 @@ const pc_detail = (req, res) => {
     const item = result
     res.render('itemDetail', {
       title: `${item.itemName} details page`,
-      item
+      item,
+      href: 'pcs'
     })
   }).catch((err) => {
     console.log(err)

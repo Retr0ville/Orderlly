@@ -13,7 +13,8 @@ const pc_accessory_create_post = (req, res) => {
       //  {}
       res.render('ItemPostSuccess', {
         title: 'Pc Accessory post success',
-        item
+        item,
+        href: 'pcs-accessories'
       })
     })
     .catch((err) => console.log(err))
@@ -23,7 +24,8 @@ const pc_accessory_create_get = (req, res) => {
   res.render('createItem', {
     // data to send to createItem view
     title: 'Post new pc-accessory',
-    formAction: '/pc-accessories'
+    formAction: '/pc-accessories',
+    href: 'pcs-accessories'
   })
 }
 
@@ -33,7 +35,8 @@ const pc_accessories_get = (req, res) => {
       const items = result
       res.render('itemList', {
         title: 'PC accessories',
-        items
+        items,
+        href: 'pcs-accessories'
       })
     })
     .catch((err) => console.log(err))
@@ -46,7 +49,8 @@ const pc_accessory_detail = (req, res) => {
       const item = result
       res.render('itemDetail', {
         title: `${item.itemName} details page`,
-        item
+        item,
+        href: 'pcs-accessories'
       })
     })
     .catch((err) => {

@@ -8,10 +8,13 @@ const smartphoneAccessorySchema = new Schema(
       type: String,
       required: true
     },
-    userId: {
-      type: String,
-      required: true
+    img: {
+      type: String
     },
+    // userId: {
+    //   type: String,
+    //   required: true
+    // },
     description: {
       type: String,
       required: true

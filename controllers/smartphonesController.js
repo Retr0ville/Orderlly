@@ -11,7 +11,8 @@ const smartphone_create_post = (req, res) => {
     // {}
     res.render('ItemPostSuccess', {
       title: 'Post new Smartphone success',
-      item
+      item,
+      href: 'smartphones'
     })
   }).catch(err => console.log(err))
 }
@@ -20,7 +21,8 @@ const smartphone_create_get = (req, res) => {
   res.render('createItem', {
     // data to send to createItem view
     title: 'Post new Smartphone',
-    formAction: '/smartphones'
+    formAction: '/smartphones',
+    href: 'smartphones'
   })
 }
 
@@ -30,7 +32,8 @@ const smartphones_get = (req, res) => {
     res.render('itemList', {
       // data to send to view
       title: 'smartphones',
-      items
+      items,
+      href: 'smartphones'
     })
   }).catch(err => console.log(err))
 }
@@ -41,7 +44,8 @@ const smartphone_detail = (req, res) => {
     const item = result
     res.render('itemDetail', {
       title: `${item.itemName} details page`,
-      item
+      item,
+      href: 'smartphones'
     })
   }).catch((err) => {
     console.log(err)

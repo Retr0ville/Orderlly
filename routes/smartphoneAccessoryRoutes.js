@@ -9,6 +9,4 @@ router.get('/:id', smartphoneAccControl.smartphone_accessory_detail);
 router.post('/', smartphoneAccControl.smartphone_accessory_create_post);
 router.delete('/:id', smartphoneAccControl.smartphone_accessory_delete);
 
-module.exports = {
-  router
-}
+module.exports = router

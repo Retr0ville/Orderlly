@@ -7,17 +7,17 @@
 
   <div class="card-columns row row-cols-3">
     <div class="card col">
-      <img class="card-img-top item" src="img/3.jpg" alt="Card image cap">
+      <img class="card-img-top item" src="<%= item.img %>" alt="Card image cap">
       <div class="card-body item">
-        <h5 class="card-title item-name">'itemName'</h5>
-        <p class="card-text item-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quibusdam labore quod minus accusantium magni impedit ut. Suscipit, architecto mollitia.</p>
-        <p class="card-text item-cost">itemCost</p>
+        <h5 class="card-title item-name"><%=item.itemName%></h5>
+        <p class="card-text item-cost"><%= item.cost %></p>
+        <p class="card-text item-description"><%= item.description %></p>
+        <p class="card-text item-status"><%=item.itemStatus%></p>
       </div>
     </div>
   </div>
 
 </div>
-
 <%-include('./partials/footer.ejs') %>
 </body>
 </html>

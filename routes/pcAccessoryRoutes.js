@@ -9,6 +9,4 @@ router.get('/:id', pcAccControl.pc_accessory_detail);
 router.post('/', pcAccControl.pc_accessory_create_post);
 router.delete('/:id', pcAccControl.pc_accessory_delete);
 
-module.exports = {
-  router
-}
+module.exports = router

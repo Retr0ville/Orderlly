@@ -9,6 +9,4 @@ router.get('/:id', pcControl.pc_detail);
 router.post('/', pcControl.pc_create_post);
 router.delete('/:id', pcControl.pc_delete);
 
-module.exports = {
-  router
-}
+module.exports = router

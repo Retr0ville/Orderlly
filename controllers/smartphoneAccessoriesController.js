@@ -13,7 +13,8 @@ const smartphone_accessory_create_post = (req, res) => {
       //  {}
       res.render('ItemPostSuccess', {
         title: 'Smartphone Accessory post success',
-        item
+        item,
+        href: 'smartphone-accessories'
       })
     })
     .catch((err) => console.log(err))
@@ -23,7 +24,8 @@ const smartphone_accessory_create_get = (req, res) => {
   res.render('createItem', {
     // data to send to createItem view
     title: 'Post new Smartphone Accessory',
-    formAction: '/smartphone-accessories'
+    formAction: '/smartphone-accessories',
+    href: 'smartphone-accessories'
   })
 }
 
@@ -34,7 +36,8 @@ const smartphone_accessories_get = (req, res) => {
       res.render('itemList', {
       // data to send to view
         title: 'Smartphone accessories',
-        items
+        items,
+        href: 'smartphone-accessories'
       })
     })
     .catch((err) => console.log(err))
@@ -47,7 +50,8 @@ const smartphone_accessory_detail = (req, res) => {
       const item = result
       res.render('itemDetail', {
         title: `${item.itemName} details page`,
-        item
+        item,
+        href: 'smartphone-accessories'
       })
     })
     .catch((err) => {
