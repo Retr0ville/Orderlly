@@ -1,25 +1,17 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require('express')
+const mongoose = require('mongoose')
 // const PcAccessory = require('./models/pcAccessory');
 
-const app = express();
-const dbUri = 'mongodb+srv://Rtrvl:Sesameex1@cluster0.zvqqc.mongodb.net/Orderlly?retryWrites=true&w=majority' ;
+const app = express()
+const dbUri = 'mongodb+srv://Rtrvl:Sesameex1@cluster0.zvqqc.mongodb.net/Orderlly?retryWrites=true&w=majority'
 
-mongoose.connect(dbUri).then((result)=>{
-  console.log('connected to MongodB');
-  app.listen(3000, (err)=>{
-    if (err) return console.log(err);
-    console.log('listening on port 3000...');
+mongoose.connect(dbUri).then((result) => {
+  console.log('connected to MongodB')
+  app.listen(3000, (err) => {
+    if (err) return console.log(err)
+    console.log('listening on port 3000...')
   })
-}).catch((err)=>{console.log(err);});
-
-
-
-
-
-
-
-
+}).catch((err) => { console.log(err) })
 
 // const testPost = new PcAccessory({
 //   itemName :'qqq',
@@ -32,4 +24,3 @@ mongoose.connect(dbUri).then((result)=>{
 // }).catch((err) => {
 //   console.log(err);
 // });
-
